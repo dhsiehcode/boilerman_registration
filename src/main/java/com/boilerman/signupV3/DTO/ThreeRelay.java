@@ -44,7 +44,7 @@ public class ThreeRelay extends Relay {
                     @JsonProperty("State") String state, @JsonProperty("City") String city,
                     @JsonProperty("PhoneNumber") String phoneNumber,
                     @JsonProperty("OneFirstName") String oneFirstName, @JsonProperty("TwoFirstName") String twoFirstName,
-                    @JsonProperty("ThreeFirstname") String threeFirstName,
+                    @JsonProperty("ThreeFirstName") String threeFirstName,
                     @JsonProperty("OneLastName") String oneLastName, @JsonProperty("TwoLastName") String twoLastName,
                     @JsonProperty("ThreeLastName") String threeLastName,
                     @JsonProperty("OneUSATNumber") String oneUSATNum, @JsonProperty("TwoUSATNumber") String twoUSATNum,

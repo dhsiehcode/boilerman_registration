@@ -1,0 +1,7 @@
+runtime: java17
+instance_class: F1
+entrypoint: java -noverify -jar signupV3-0.0.1-SNAPSHOT.war
+
+handlers:
+  - url: "/.*"
+    script: "this field is required, but ignored"

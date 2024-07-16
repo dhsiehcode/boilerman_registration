@@ -30,7 +30,7 @@ public class CollegiateController {
         this.assembler = assembler;
     }
 
-    @GetMapping("/collegiate_entries")
+    @GetMapping("/collegiate")
     CollectionModel<EntityModel<Collegiate>> all() {
         List<EntityModel<Collegiate>> entries = new ArrayList<EntityModel<Collegiate>>();
         List<Collegiate> original_list = repository.findAll();
@@ -42,7 +42,7 @@ public class CollegiateController {
         return CollectionModel.of(entries, linkTo(methodOn(CollegiateController.class).all()).withSelfRel());
     }
     // rsponse entity builds a respnse for you
-    @PostMapping("/collegiate_entries")
+    @PostMapping("/collegiate")
     ResponseEntity<?> newCollegiate(@RequestBody Collegiate newCollegeEntry) {
 
         EntityModel<Collegiate> entityModel = assembler.toModel(repository.save(newCollegeEntry));
@@ -63,14 +63,14 @@ public class CollegiateController {
         return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()).body(entityModel);
     }
 
-    @GetMapping("/collegiate_entries/{id}")
+    @GetMapping("/collegiate/{id}")
     EntityModel<Collegiate> getEntry(@PathVariable Long id) {
         Collegiate entry = repository.findById(id).orElseThrow(() -> new EntryNotFoundException(id));
 
         return assembler.toModel(entry);
     }
 
-    @DeleteMapping("/collegiate_entries/{id}")
+    @DeleteMapping("/collegiate/{id}")
     ResponseEntity<?> deleteEntry(@PathVariable Long id) {
 
         repository.deleteById(id);
